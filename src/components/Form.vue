@@ -45,6 +45,9 @@ export default {
       type: String,
       required: true,
     },
+    user: {
+      type: Object,
+    },
   },
   data() {
     return {
@@ -66,6 +69,13 @@ export default {
   },
   mounted() {
     maskPhone(".form__phone");
+  },
+  watch: {
+    user() {
+      this.name = this.user.name;
+      this.email = this.user.email;
+      this.phone = this.user.phone;
+    },
   },
   methods: {
     onSubmit() {
